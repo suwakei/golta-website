@@ -1,0 +1,42 @@
+.header {
+  height: auto;
+  background-color: rgb(16, 126, 205);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logoLink {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* リンク間の余白 */
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* アイコンとテキストの間の余白 */
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.navLink:hover {
+  opacity: 0.8;
+}
+
+.active {
+  text-decoration: underline;
+}

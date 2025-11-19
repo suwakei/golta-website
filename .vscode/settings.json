@@ -1,0 +1,30 @@
+{
+  // ファイル保存時に自動でフォーマットする
+  "editor.formatOnSave": true,
+
+  // Prettierをデフォルトのフォーマッターとして設定
+  // VSCodeでPrettier拡張機能(esbenp.prettier-vscode)のインストールが必要です
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ファイル保存時にESLintの自動修正とimportの整理を実行
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}

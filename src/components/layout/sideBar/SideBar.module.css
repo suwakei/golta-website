@@ -1,0 +1,88 @@
+.sidebar {
+  width: 240px;
+  padding: 2rem 1rem;
+  border-right: 1px solid #eaecef;
+  height: calc(100vh - 60px); /* ヘッダーの高さを引く */
+  position: sticky;
+  top: 60px; /* ヘッダーの高さ分下げる */
+  overflow-y: auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.titleButton {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #333;
+  font-family: inherit;
+}
+
+.mainLink {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+  text-decoration: none;
+  padding: 4px 8px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.mainLink:hover {
+  background-color: #f0f0f0;
+}
+
+.activeMain {
+  color: rgb(16, 126, 205);
+  background-color: rgba(16, 126, 205, 0.1);
+}
+
+.toc {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toc.open {
+  max-height: 500px; /* 目次が収まる十分な高さを指定 */
+}
+
+.tocLink {
+  font-size: 0.9rem;
+  color: #666;
+  text-decoration: none;
+  padding: 2px 8px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.tocLink:hover {
+  color: #000;
+}
+
+.activeToc {
+  color: rgb(16, 126, 205);
+  font-weight: 600;
+  border-left-color: rgb(16, 126, 205);
+}
