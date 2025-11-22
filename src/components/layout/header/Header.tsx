@@ -8,15 +8,18 @@ export function Header() {
   const pathname = usePathname();
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logoLink}>
-        <Image
-          src="/GoltaCircle.svg"
-          alt="Golta Logo"
-          width={120}
-          height={59}
-          priority
-        />
-      </Link>
+      <div className={styles.logoContainer}>
+        <Link href="/" className={styles.logoLink}>
+          <Image
+            src="/GoltaCircle.svg"
+            alt="Golta Logo"
+            width={120}
+            height={59}
+            priority
+          />
+        </Link>
+        <div className={styles.logoText}>Golta</div>
+      </div>
       <nav className={styles.nav}>
         <Link
           href="/"
