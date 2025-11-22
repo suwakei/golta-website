@@ -1,10 +1,8 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
-import { FaHome, FaBook, FaList, FaGithub } from "react-icons/fa";
 
 export function Header() {
   const pathname = usePathname();
@@ -12,7 +10,7 @@ export function Header() {
     <header className={styles.header}>
       <Link href="/" className={styles.logoLink}>
         <Image
-          src="/GoltaLogo.svg"
+          src="/GoltaCircle.svg"
           alt="Golta Logo"
           width={120}
           height={59}
@@ -24,7 +22,13 @@ export function Header() {
           href="/"
           className={`${styles.navLink} ${pathname === "/" ? styles.active : ""}`}
         >
-          <FaHome />
+          <Image
+            src="/Home.svg"
+            alt="Home icon"
+            width={20}
+            height={20}
+            className={styles.icon}
+          />
           Home
         </Link>
         <Link
@@ -33,7 +37,13 @@ export function Header() {
             pathname === "/guide" ? styles.active : ""
           }`}
         >
-          <FaBook />
+          <Image
+            src="/book.svg"
+            alt="book icon"
+            width={20}
+            height={20}
+            className={styles.icon}
+          />
           Guide
         </Link>
         <Link
@@ -42,7 +52,13 @@ export function Header() {
             pathname === "/reference" ? styles.active : ""
           }`}
         >
-          <FaList />
+          <Image
+            src="/reference.svg"
+            alt="reference icon"
+            width={20}
+            height={20}
+            className={styles.icon}
+          />
           Reference
         </Link>
         <Link
@@ -51,7 +67,13 @@ export function Header() {
           rel="noopener noreferrer"
           className={styles.navLink}
         >
-          <FaGithub />
+          <Image
+            src="/github.svg"
+            alt="github icon"
+            width={20}
+            height={20}
+            className={styles.icon}
+          />
           GitHub
         </Link>
       </nav>

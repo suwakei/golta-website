@@ -1,15 +1,19 @@
 import Image from "next/image";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import dynamic from "next/dynamic";
 import styles from "@/styles/content.module.css";
-import { Footer } from "@/components/layout/footer/Footer";
+import remarkGfm from "remark-gfm";
+import MemoizedReactMarkdown from "@/components/ui/common/MemoizedReactMarkdown";
 import { HomeContent } from "@/lib/markdownContent";
+
+const Footer = dynamic(() =>
+  import("@/components/layout/footer/Footer").then((module) => module.Footer)
+);
 
 export default function Home() {
   return (
     <>
       <div className={styles.container}>
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className={styles.logoContainer}>
           <Image
             src="/backwhite.svg"
             alt="Golta Logo"
@@ -18,7 +22,9 @@ export default function Home() {
             priority
           />
         </div>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{HomeContent}</ReactMarkdown>
+        <MemoizedReactMarkdown remarkPlugins={[remarkGfm]}>
+          {HomeContent}
+        </MemoizedReactMarkdown>
       </div>
       <Footer />
     </>
