@@ -31,24 +31,3 @@
   align-items: center;
   gap: 1.5rem;
 }
-
-.navLink {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.navLink:hover {
-  opacity: 0.8;
-}
-
-.active {
-  text-decoration: none;
-  border-bottom: 2px solid white;
-  padding-bottom: 2px;
-  font-weight: 600;
-}
