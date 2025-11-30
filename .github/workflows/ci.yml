@@ -31,14 +31,23 @@ jobs:
       - name: Run lint
         run: npm run lint
 
+      - name: Run tests
+        run: npm test
+
       - name: Build project
         run: npm run build
+
+      - name: Pull Vercel Project Settings
+        if: success()
+        run: |
+          npx vercel pull --yes \
+            --environment=production \
+            --token ${{ secrets.VERCEL_TOKEN }} \
+            --scope ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Deploy to Vercel
         if: success()
         run: |
-          npx vercel deploy --prod \
+          npx vercel deploy --prod --yes \
             --token ${{ secrets.VERCEL_TOKEN }} \
-            --yes \
-            --scope ${{ secrets.VERCEL_ORG_ID }} \
-            --project ${{ secrets.VERCEL_PROJECT_ID }}
+            --scope ${{ secrets.VERCEL_ORG_ID }}
