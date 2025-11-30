@@ -20,7 +20,7 @@ export function Header() {
         <div className={styles.logoText}>Golta</div>
       </div>
       <nav className={styles.nav}>
-        <NavLink href="/" iconSrc="/Home.svg" iconAlt="Home icon">
+        <NavLink href="/" iconSrc="/home.svg" iconAlt="Home icon">
           Home
         </NavLink>
         <NavLink href="/guide" iconSrc="/book.svg" iconAlt="book icon">
