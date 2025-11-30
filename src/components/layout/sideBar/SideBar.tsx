@@ -13,7 +13,7 @@ export const SideBar = () => {
   const [activeId, setActiveId] = useState("");
   const [isGuideOpen, setIsGuideOpen] = useState(pathname.startsWith("/guide"));
   const [isReferenceOpen, setIsReferenceOpen] = useState(
-    pathname.startsWith("/reference")
+    pathname.startsWith("/reference"),
   );
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export const SideBar = () => {
           }
         });
       },
-      { rootMargin: "0px 0px -80% 0px" }
+      { rootMargin: "0px 0px -80% 0px" },
     );
 
     headings.forEach(({ slug }) => {

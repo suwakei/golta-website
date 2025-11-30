@@ -6,7 +6,7 @@ import MemoizedReactMarkdown from "@/components/ui/common/MemoizedReactMarkdown"
 import { HomeContent } from "@/lib/markdownContent";
 
 const Footer = dynamic(() =>
-  import("@/components/layout/footer/Footer").then((module) => module.Footer)
+  import("@/components/layout/footer/Footer").then((module) => module.Footer),
 );
 
 export default function Home() {

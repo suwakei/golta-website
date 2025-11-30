@@ -7,7 +7,7 @@ import ReactMarkdown, { Options } from "react-markdown";
  */
 const MemoizedReactMarkdown: React.FC<Options> = memo(
   ReactMarkdown,
-  (prevProps, nextProps) => prevProps.children === nextProps.children
+  (prevProps, nextProps) => prevProps.children === nextProps.children,
 );
 
 export default MemoizedReactMarkdown;
