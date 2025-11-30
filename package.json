@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "fmt": "prettier --write .",
-    "fmt:check": "prettier --check .",
-    "test": "vitest"
+    "fmt:check": "prettier --check ."
   },
   "dependencies": {
     "github-slugger": "^2.0.0",
