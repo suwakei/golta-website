@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     "Golta - A fast, cross-platform Go version manager with Volta-style seamless switching.",
   description:
     "A fast, cross-platform Go version manager with Volta-style seamless switching.",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({

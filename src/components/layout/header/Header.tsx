@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import { NavLink } from "@/components/ui/link/NavLink";
 import GithubLink from "@/components/ui/link/GithubLink";
+import { HamburgerMenu } from "@/components/layout/hamburgerMenu/HamburgerMenu";
 
 export function Header() {
   return (
@@ -41,6 +42,21 @@ export function Header() {
           GitHub
         </GithubLink>
       </nav>
+      <HamburgerMenu>
+        <NavLink href="/" iconSrc="/home.svg" iconAlt="Home icon">
+          Home
+        </NavLink>
+        <NavLink href="/guide" iconSrc="/book.svg" iconAlt="book icon">
+          Guide
+        </NavLink>
+        <NavLink
+          href="/reference"
+          iconSrc="/reference.svg"
+          iconAlt="reference icon"
+        >
+          Reference
+        </NavLink>
+      </HamburgerMenu>
     </header>
   );
 }
