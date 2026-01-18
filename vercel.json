@@ -2,12 +2,12 @@
   "redirects": [
     {
       "source": "/install",
-      "destination": "https://github.com/suwakei/golta/releases/latest/download/install.sh",
+      "destination": "https://raw.githubusercontent.com/suwakei/golta/main/scripts/install.sh",
       "permanent": false
     },
     {
       "source": "/install_win",
-      "destination": "https://github.com/suwakei/golta/releases/latest/download/install.ps1",
+      "destination": "https://raw.githubusercontent.com/suwakei/golta/main/scripts/install.ps1",
       "permanent": false
     }
   ]
