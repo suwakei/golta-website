@@ -32,7 +32,6 @@
   gap: 1.5rem;
 }
 
-
 @media (max-width: 768px) {
   .header {
     padding-left: var(--space-md);
