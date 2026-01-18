@@ -5,6 +5,26 @@ import { NavLink } from "@/components/ui/link/NavLink";
 import GithubLink from "@/components/ui/link/GithubLink";
 import { HamburgerMenu } from "@/components/layout/hamburgerMenu/HamburgerMenu";
 
+const navLinks = [
+  {
+    href: "/",
+    iconSrc: "/home.svg",
+    iconAlt: "Home icon",
+    text: "Home",
+  },
+  {
+    href: "/guide",
+    iconSrc: "/book.svg",
+    iconAlt: "book icon",
+    text: "Guide",
+  },
+  {
+    href: "/reference",
+    iconSrc: "/reference.svg",
+    iconAlt: "reference icon",
+    text: "Reference",
+  },
+];
 export function Header() {
   return (
     <header className={styles.header}>
@@ -21,19 +41,11 @@ export function Header() {
         <div className={styles.logoText}>Golta</div>
       </div>
       <nav className={styles.nav}>
-        <NavLink href="/" iconSrc="/home.svg" iconAlt="Home icon">
-          Home
-        </NavLink>
-        <NavLink href="/guide" iconSrc="/book.svg" iconAlt="book icon">
-          Guide
-        </NavLink>
-        <NavLink
-          href="/reference"
-          iconSrc="/reference.svg"
-          iconAlt="reference icon"
-        >
-          Reference
-        </NavLink>
+        {navLinks.map((link) => (
+          <NavLink key={link.href} {...link}>
+            {link.text}
+          </NavLink>
+        ))}
         <GithubLink
           href="https://github.com/suwakei/golta"
           iconSrc="/github.svg"
@@ -43,19 +55,18 @@ export function Header() {
         </GithubLink>
       </nav>
       <HamburgerMenu>
-        <NavLink href="/" iconSrc="/home.svg" iconAlt="Home icon">
-          Home
-        </NavLink>
-        <NavLink href="/guide" iconSrc="/book.svg" iconAlt="book icon">
-          Guide
-        </NavLink>
-        <NavLink
-          href="/reference"
-          iconSrc="/reference.svg"
-          iconAlt="reference icon"
+        {navLinks.map((link) => (
+          <NavLink key={link.href} {...link}>
+            {link.text}
+          </NavLink>
+        ))}
+        <GithubLink
+          href="https://github.com/suwakei/golta"
+          iconSrc="/github.svg"
+          iconAlt="github icon"
         >
-          Reference
-        </NavLink>
+          GitHub
+        </GithubLink>
       </HamburgerMenu>
     </header>
   );

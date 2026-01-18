@@ -3,3 +3,19 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  /* ここにスマートフォン向けのスタイルを記述します */
+  body {
+    font-size: 16px;
+    /* iOSでの文字サイズ自動調整を無効化 */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* 画像や動画がコンテナからはみ出さないようにする */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

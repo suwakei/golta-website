@@ -1,9 +1,30 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="30" height="30" fill="url(#pattern0_9_3)"/>
-<defs>
-<pattern id="pattern0_9_3" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_9_3" transform="scale(0.0333333)"/>
-</pattern>
-<image id="image0_9_3" width="30" height="30" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAb0lEQVR4nO2WwQmAQAwEU1fQv4f9N3Dax4hPxQPDBVHZ+S8D2X3ETJgZMAMr/SxAiYj3QBY1Ik5F4sipPVDTkHnqIZAd1bFJ3OIi66e1+mOr5rjW5sq16l6xq+MInxSr4xASv/K9LUnyCky3xb9mA3MrIBYrizSJAAAAAElFTkSuQmCC"/>
-</defs>
+<svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- ノートのページ本体 -->
+  <rect
+    x="6"
+    y="3"
+    width="12"
+    height="18"
+    rx="1.5"
+    fill="#FFFFFF"
+    stroke="#D1D5DB"
+    stroke-width="1.5"
+  />
+  <!-- 左側の余白ライン -->
+  <path
+    d="M8 3V21"
+    stroke="#E5E7EB"
+    stroke-width="1"
+  />
+  <!-- 横罫線（ノートの線） -->
+  <path d="M9.5 7H16.5" stroke="#E5E7EB" stroke-width="0.9" />
+  <path d="M9.5 10H16.5" stroke="#E5E7EB" stroke-width="0.9" />
+  <path d="M9.5 13H16.5" stroke="#E5E7EB" stroke-width="0.9" />
+  <path d="M9.5 16H16.5" stroke="#E5E7EB" stroke-width="0.9" />
 </svg>
