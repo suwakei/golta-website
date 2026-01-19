@@ -10,6 +10,52 @@ Golta is a command-line tool that allows you to easily install and switch betwee
 *   **Cross-Platform:** Works on macOS, Linux, and Windows.
 *   **Fast Installation:** Installs Go versions quickly.
 *   **Seamless Switching:** Automatically switches Go versions based on your project's configuration.
+
+## Installation
+
+### macOS / Linux
+
+You can install Golta using the installer script:
+
+\`\`\`bash
+curl -fsSL https://golta-website.vercel.app/install | bash
+\`\`\`
+
+### Windows
+Run the following command in PowerShell:
+\`\`\`powershell
+iwr -useb https://golta-website.vercel.app/install_win | iex
+\`\`\`
+
+__※Note: After installation, restart your terminal to start using golta.__
+
+
+## Usage
+Installing Go
+To install the latest version of Go:
+\`\`\`shell
+golta install go
+\`\`\`
+Or to install a specific version (e.g., latest):
+
+\`\`\`shell
+golta install go@latest
+\`\`\`
+
+## Running a Project
+Use the go command as usual, and Golta will run it with the appropriate version based on your configuration:
+
+\`\`\`shell
+go version
+\`\`\`
+
+\`\`\`shell
+go version go1.25.4 windows/amd64
+\`\`\`
+
+\`\`\`shell
+go run main.go
+\`\`\`
 `;
 
 export const guideContent = `
