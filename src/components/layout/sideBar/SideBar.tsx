@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import styles from "./SideBar.module.css";
 import { slugger } from "@/lib/slugger";
-import { guideContent, referenceContent } from "@/lib/markdownContent";
+import { guideContent } from "@/lib/markdownContent";
 
 export const SideBar = () => {
   const pathname = usePathname();
@@ -21,18 +21,33 @@ export const SideBar = () => {
     setIsReferenceOpen(pathname.startsWith("/reference"));
   }, [pathname]);
 
-  const headings = useMemo(() => {
-    const content = pathname === "/guide" ? guideContent : referenceContent;
-    if (!content) return [];
-
-    const headingLines = content.match(/^## (.*)/gm) || [];
+  const guideHeadings = useMemo(() => {
+    const headingLines = guideContent.match(/^## (.*)/gm) || [];
     return headingLines.map((line) => {
       const text = line.replace(/^## /, "").trim();
       return { text, slug: slugger.slug(text) };
     });
-  }, [pathname]);
+  }, []);
+
+  const referenceLinks = useMemo(
+    () => [
+      { text: "install", href: "/reference#install" },
+      { text: "uninstall", href: "/reference#uninstall" },
+      { text: "list", href: "/reference#list" },
+      { text: "list-remote", href: "/reference#list-remote" },
+      { text: "default", href: "/reference#default" },
+      { text: "pin", href: "/reference#pin" },
+      { text: "unpin", href: "/reference#unpin" },
+      { text: "exec", href: "/reference#exec" },
+      { text: "run", href: "/reference#run" },
+      { text: "which", href: "reference#which" },
+    ],
+    [],
+  );
 
   useEffect(() => {
+    if (pathname !== "/guide" && pathname !== "/reference") return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,7 +59,12 @@ export const SideBar = () => {
       { rootMargin: "0px 0px -80% 0px" },
     );
 
-    headings.forEach(({ slug }) => {
+    const slugs =
+      pathname === "/guide"
+        ? guideHeadings.map((h) => h.slug)
+        : referenceLinks.map((l) => l.href.split("#")[1] || "");
+
+    slugs.forEach((slug) => {
       const element = document.getElementById(slug);
       if (element) {
         observer.observe(element);
@@ -52,14 +72,14 @@ export const SideBar = () => {
     });
 
     return () => {
-      headings.forEach(({ slug }) => {
+      slugs.forEach((slug) => {
         const element = document.getElementById(slug);
         if (element) {
           observer.unobserve(element);
         }
       });
     };
-  }, [headings]);
+  }, [guideHeadings, pathname, referenceLinks]);
 
   return (
     <aside className={styles.sidebar}>
@@ -69,6 +89,7 @@ export const SideBar = () => {
             <button
               className={styles.titleButton}
               onClick={() => setIsGuideOpen(!isGuideOpen)}
+              aria-expanded={isGuideOpen}
             >
               <Link
                 href="/guide"
@@ -84,14 +105,14 @@ export const SideBar = () => {
               )}
             </button>
             <div className={`${styles.toc} ${isGuideOpen ? styles.open : ""}`}>
-              {headings.map(({ text, slug }) => (
-                <a
+              {guideHeadings.map(({ text, slug }) => (
+                <Link
                   key={slug}
-                  href={`#${slug}`}
-                  className={`${styles.tocLink} ${activeId === slug ? styles.activeToc : ""}`}
+                  href={`/guide#${slug}`}
+                  className={`${styles.tocLink} ${pathname === "/guide" && activeId === slug ? styles.activeToc : ""}`}
                 >
                   {text}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -99,6 +120,7 @@ export const SideBar = () => {
             <button
               className={styles.titleButton}
               onClick={() => setIsReferenceOpen(!isReferenceOpen)}
+              aria-expanded={isReferenceOpen}
             >
               <Link
                 href="/reference"
@@ -116,14 +138,14 @@ export const SideBar = () => {
             <div
               className={`${styles.toc} ${isReferenceOpen ? styles.open : ""}`}
             >
-              {headings.map(({ text, slug }) => (
-                <a
-                  key={slug}
-                  href={`#${slug}`}
-                  className={`${styles.tocLink} ${activeId === slug ? styles.activeToc : ""}`}
+              {referenceLinks.map(({ text, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`${styles.tocLink} ${pathname === "/reference" && activeId === href.split("#")[1] ? styles.activeToc : ""}`}
                 >
                   {text}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
